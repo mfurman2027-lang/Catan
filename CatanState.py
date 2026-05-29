@@ -3,4 +3,3 @@ class CatanState:
         self.board = Board()
         self.pOnePieces = 
         self.pTwoPieces = 
-        
