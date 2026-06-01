@@ -11,6 +11,7 @@ class Tile:
 
 class Edge:
     def __init__(self):
+        
 
 class Vertex:
     def __init__(self):
