@@ -11,9 +11,11 @@ class Tile:
 
 class Edge:
     def __init__(self):
+        return
         
 
 class Vertex:
     def __init__(self):
+        return
 
 
