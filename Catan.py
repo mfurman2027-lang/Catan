@@ -13,7 +13,6 @@ def main():
 
     catanState = CatanState(numOfPlayers)
     running = True
-    #catanState = CatanState()
 
     while running:
         for event in pygame.event.get():
