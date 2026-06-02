@@ -20,7 +20,7 @@ class CatanState:
         playerList = []
         
         for player in range(num):
-            newPlayer = Player(Color(player), 5, 4, 15)
+            newPlayer = Player(Color(player), 5, 4, 15, [])
             playerList.append(newPlayer)
 
         return playerList

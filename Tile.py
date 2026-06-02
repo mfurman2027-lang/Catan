@@ -6,8 +6,8 @@
 # desert tan 6
 
 class Tile:
-    def __init__(self, pos, name):
-        self.name = name
+    def __init__(self, pos, resource):
+        self.name = resource
         self.image = f"CatanPictures\\Tiles\\{name}Tile.png"
 
 class Edge:
