@@ -6,6 +6,3 @@ class Player:
         self.resources = []
         self.settlements = settlements
         self.cities = cities
-
-
-    
