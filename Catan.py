@@ -14,7 +14,7 @@ def main():
     catanState = CatanState(numOfPlayers)
     running = True
 
-    while running:
+   while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False

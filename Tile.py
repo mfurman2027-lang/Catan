@@ -5,10 +5,13 @@
 # wheat yellow 5
 # desert tan 6
 
+# types of tiles
+# forest 4, mountain 3, desert 1, pasture 4, field 4
+
 class Tile:
-    def __init__(self, pos, name):
-        self.name = name
-        self.image = f"CatanPictures\\Tiles\\{name}Tile.png"
+    def __init__(self, pos, type):
+        self.type = type
+        self.image = f"CatanPictures\\Tiles\\{type}Tile.png"
 
 class Edge:
     def __init__(self):
