@@ -6,13 +6,14 @@
 # desert tan 6
 
 class Tile:
-    def __init__(self, pos):
-        return
+    def __init__(self, pos, name):
+        self.name = name
+        self.image = f"CatanPictures\\Tiles\\{name}Tile.png"
 
 class Edge:
     def __init__(self):
+        return 
 
 class Vertex:
     def __init__(self):
-
-
+        return

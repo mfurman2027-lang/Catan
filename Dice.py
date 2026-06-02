@@ -1,0 +1,14 @@
+import math
+import random
+
+class Dice :
+    def __init__(self):
+        return
+
+    def roll(self) :
+        num = random.randint(1, 6)
+        return num
+
+temp = Dice()
+face = temp.roll()
+diceImage = f"CatanPictures\Dice\\{face}.png"
