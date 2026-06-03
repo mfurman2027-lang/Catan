@@ -9,3 +9,4 @@ class Board:
 
         for tile in range(19):
             newTile = Tile(tile, )
+            resources.append(newTile)
