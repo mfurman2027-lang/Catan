@@ -9,7 +9,8 @@
 # forest 4, desert 1, pasture 4, field 4, mountain 3, hill 3
 
 class Tile:
-    
+    positionDict = {}
+
     def __init__(self, pos, type):
         self.type = type
         self.image = f"CatanPictures\\Tiles\\{type}Tile.png"
