@@ -29,6 +29,7 @@ class Board:
                     TileTypes.PASTURE, TileTypes.PASTURE, TileTypes.PASTURE, TileTypes.PASTURE, 
                     TileTypes.FIELD, TileTypes.FIELD, TileTypes.FIELD, TileTypes.FIELD, 
                     TileTypes.MOUNTAIN, TileTypes.MOUNTAIN, TileTypes.MOUNTAIN, 
+                    TileTypes.HILL, TileTypes.HILL, TileTypes.HILL,
                     TileTypes.DESERT]
 
         for i in range(19):
