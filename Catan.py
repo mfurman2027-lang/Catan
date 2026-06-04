@@ -6,6 +6,8 @@ def main():
     pygame.init()
     
     numOfPlayers = int(input("Enter number of players: "))
+    if numOfPlayers > 4:
+        raise ValueError("The number of players must be a number from 2 to 4")
 
     screen = pygame.display.set_mode((900, 790.5))
     img = pygame.image.load(r'CatanPictures\CatanBoard.png').convert_alpha()
