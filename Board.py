@@ -18,8 +18,12 @@ class Board:
     def __init__(self):
         TileList = self.makeBoard()
     
-    def placePiece(self, pieceType, spot):
-    
+    def placePiece(self, pieceType, spot, color):
+        if (self.isValidMove(pieceType, spot, color)):
+            PieceList[spot] = Piece(color)
+            return
+        else:
+            return
     def grabBoard(self):
         return [TileList, PieceList]
         
