@@ -14,7 +14,7 @@ class Tile:
 
     def __init__(self, pos, type):
         self.type = type
-        self.image = f"CatanPictures\\Tiles\\{type}Tile.png"
+        self.image = f"CatanPictures\\Tiles\\{type.name}.png"
 
 class Edge:
     def __init__(self):
