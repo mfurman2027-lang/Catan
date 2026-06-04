@@ -14,7 +14,7 @@ class TileTypes(Enum):
 
 class Board:
     def __init__(self):
-        til0 = Tile(0)
+        self.tileList = Board.makeBoard()
     
     def placePiece(self, pieceType, spot):
     
@@ -22,7 +22,7 @@ class Board:
         #return [tileList, pieceList]
         return
         
-    def makeBoard(self):
+    def makeBoard():
         tileList = []
         
         allTiles = [TileTypes.FOREST, TileTypes.FOREST, TileTypes.FOREST, TileTypes.FOREST, 
@@ -32,8 +32,9 @@ class Board:
                     TileTypes.DESERT]
 
         for i in range(19):
-            randomTile = random.choice(allTiles)
-            tileList.append(randomTile)
-            allTiles.pop(allTiles.index(randomTile))
+            randomType = random.choice(allTiles)
+            newTile = Tile(i, randomType)
+            tileList.append(newTile)
+            allTiles.pop(allTiles.index(randomType))
 
         return tileList
