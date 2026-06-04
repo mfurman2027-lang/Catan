@@ -13,14 +13,15 @@ class TileTypes(Enum):
 
 
 class Board:
+    TileList = []
+    PieceList = []
     def __init__(self):
-        til0 = Tile(0)
+        TileList = self.makeBoard()
     
     def placePiece(self, pieceType, spot):
     
     def grabBoard(self):
-        #return [tileList, pieceList]
-        return
+        return [TileList, PieceList]
         
     def makeBoard(self):
         tileList = []
