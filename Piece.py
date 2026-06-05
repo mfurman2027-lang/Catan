@@ -5,9 +5,16 @@ class Color(Enum):
     BLUE = 1
     ORANGE = 2
     WHITE = 3
+    NULL = 4
 
-class Piece:
-    Color = 0
-    def __init__(self, color):
-        Color = color
+class Road():
+    def __init__(self, color, pos):
+        return
+
+class Settlement():
+    def __init__(self, color, pos):
+        return
+
+class City():
+    def __init__(self, color, pos):
         return

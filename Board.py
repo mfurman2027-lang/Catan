@@ -2,22 +2,18 @@ from Tile import Tile, TileTypes
 import random
 
 class Board:
-    PieceList = []
-
     def __init__(self):
         self.tileList = Board.makeBoard()
-    
-    def placePiece(self, pieceType, spot, color):
+        #in vertex list there is a list of City and Settlement objects with their associated positions
+        self.vertexList = Board.addVerts()
+        #in edge list there is a list of Road objects
+        self.edgeList = Board.addEdges()
+
+    def addEdges():
         return
-        #if (self.isValidMove(pieceType, spot, color)):
-        #    PieceList[spot] = Piece(color)
-        #    return
-        #else:
-        #    return
-        
-    def grabBoard(self):
+
+    def addVerts():
         return
-        #return [TileList, PieceList]
         
     def makeBoard():
         tileList = []
@@ -48,6 +44,3 @@ class Board:
 
         return tileList
 
-testBoard = Board()
-for tile in testBoard.tileList:
-    print(f"type {tile.type} and prob {tile.prob}")

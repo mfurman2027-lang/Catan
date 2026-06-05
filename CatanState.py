@@ -1,13 +1,7 @@
 from Player import Player
 from Board import Board
-from enum import Enum
+from Piece import Color
 
-
-class Color(Enum):
-    RED = 0
-    BLUE = 1
-    ORANGE = 2
-    WHITE = 3
 
 class CatanState:
 # only handles game, does not interfere with display

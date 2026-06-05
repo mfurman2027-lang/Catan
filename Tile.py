@@ -21,8 +21,8 @@ class TileTypes(Enum):
 class Tile:
     positionDict = {}
 
-    def __init__(self, pos, type, prob):
-        self.prob = prob
+    def __init__(self, pos, type, number):
+        self.number = number
         self.type = type
         self.image = f"CatanPictures\\Tiles\\{type.name}.png"
 
