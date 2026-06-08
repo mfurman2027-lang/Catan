@@ -1,5 +1,6 @@
 import pygame
 from CatanState import CatanState
+import tkinter as tk
 
 # only handles display, after every turn display catanstate
 def main():
