@@ -14,10 +14,14 @@ def main():
     outline = pygame.transform.scale(outline, (900, 790.5))
     board = state.board
     tileImages = []
+    numberImages = []
     for tile in board.tileList :
         temp = pygame.image.load(tile.image).convert_alpha()
         temp = pygame.transform.scale(temp, (185, 185))
         temp = pygame.transform.rotate(temp, 30)
+        number = pygame.image.load(f"CatanPictures\\Numbers\\{tile.number}.png").convert_alpha()
+        number = pygame.transform.scale(number, (60, 60))
+        numberImages.append(number)
         tileImages.append(temp)
     running = True
     #difference of 135
@@ -38,6 +42,17 @@ def main():
             screen.blit(tileImages[i], (120 + ((i - 12) * 136), 395))
         for i in range(16, 19) :
             screen.blit(tileImages[i], (190 + ((i - 16) * 136), 515))
+        for i in range(0, 3) :
+            screen.blit(numberImages[i], (285 + (i * 136), 130))
+        for i in range(3, 7) :
+            screen.blit(numberImages[i], (215 + ((i - 3) * 136), 250))
+        for i in range(7, 12) :
+            screen.blit(numberImages[i], (145 + ((i - 7) * 136), 370))
+        for i in range(12, 16) :
+            screen.blit(numberImages[i], (215 + ((i - 12) * 136), 490))
+        for i in range(16, 19) :
+            screen.blit(numberImages[i], (285 + ((i - 16) * 136), 610))
+        # screen.blit(numberImages[0], (285, 130))
         pygame.display.flip()
 
     pygame.quit()
