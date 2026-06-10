@@ -21,10 +21,12 @@ class TileTypes(Enum):
 class Tile:
     positionDict = {}
 
-    def __init__(self, pos, type, number):
+    def __init__(self, type, number):
         self.number = number
         self.type = type
         self.image = f"CatanPictures\\Tiles\\{type.name}.png"
+        self.edgeList = []
+        self.vertexList = []
 
 class Edge:
     def __init__(self):

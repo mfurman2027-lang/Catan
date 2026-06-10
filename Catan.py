@@ -16,7 +16,9 @@ def main():
     board = state.board
     tileImages = []
     numberImages = []
-    for tile in board.tileList :
+
+    for i in range(19) :
+        tile = board.tileDict[i]
         temp = pygame.image.load(tile.image).convert_alpha()
         temp = pygame.transform.scale(temp, (185, 185))
         temp = pygame.transform.rotate(temp, 30)

@@ -1,22 +1,39 @@
-from Tile import Tile, TileTypes
+from Tile import TileTypes, Tile, Edge, Vertex
 import random
 
 class Board:
     def __init__(self):
-        self.tileList = Board.makeBoard()
-        #in vertex list there is a list of City and Settlement objects with their associated positions
-        self.vertexList = Board.addVerts()
-        #in edge list there is a list of Road objects
-        self.edgeList = Board.addEdges()
+        self.tileDict = Board.makeBoard()
+        self.vertDict = Board.addVerts()
+        self.edgeDict = Board.addEdges()
+
+        self.setUpTiles()
+
+    def setUpTiles(self):
+        return
+        #self.tileDict[0].edgeList = [self.edgeDict[], ]
+        #sel
 
     def addEdges():
-        return
+        edgeDict = {}
+
+        for i in range(72):
+            newEdge = Edge()
+            edgeDict[i] = newEdge
+
+        return edgeDict
 
     def addVerts():
-        return
+        vertDict = {}
+
+        for i in range(54):
+            newVertex = Vertex()
+            vertDict[i] = newVertex
+        
+        return vertDict
         
     def makeBoard():
-        tileList = []
+        tileDict = {}
         
         allTiles = [TileTypes.FOREST, TileTypes.FOREST, TileTypes.FOREST, TileTypes.FOREST, 
                     TileTypes.PASTURE, TileTypes.PASTURE, TileTypes.PASTURE, TileTypes.PASTURE, 
@@ -33,14 +50,16 @@ class Board:
             newTile = None
 
             if randomType == TileTypes.DESERT:
-                newTile = Tile(i, randomType, 7)
+                newTile = Tile(randomType, 7)
             else:
                 randomProb = random.choice(allNums)
                 allNums.pop(allNums.index(randomProb))
 
-                newTile = Tile(i, randomType, randomProb)
+                newTile = Tile(randomType, randomProb)
             
-            tileList.append(newTile)
+            tileDict[i] = newTile
 
-        return tileList
+        return tileDict
 
+testBoard = Board()
+print(testBoard.edgeDict[0])
