@@ -4,6 +4,7 @@ from CatanState import CatanState
 WHITE = (255, 255, 255)
 DARK_BLUE = (20, 50, 90)
 LIGHT_BLUE = (40, 90, 160)
+LIGHT_GREY = (211, 211, 211)
 class Button:
 
     def __init__(self, x, y, width, height, text, action=None):
@@ -23,9 +24,9 @@ class Button:
         # 1. Track mouse hover to dynamically shift colors
         mouse_pos = pygame.mouse.get_pos()
         if self.rect.collidepoint(mouse_pos):
-            self.current_color = LIGHT_BLUE
+            self.current_color = LIGHT_GREY
         else:
-            self.current_color = DARK_BLUE
+            self.current_color = WHITE
 
         # 2. Draw button background surface
         pygame.draw.rect(surface, self.current_color, self.rect, border_radius=8)
@@ -70,14 +71,14 @@ def main():
         tileImages.append(temp)
     running = True
     #difference of 135
-    my_button = Button(x=300, y=250, width=200, height=60, text="Click Me", action=on_button_click)
+    my_button = Button(x=240, y=115, width=10, height=10, text="", action=on_button_click)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
             my_button.check_click(event)
-        my_button.draw(screen)
+        
         pygame.display.flip()
         clock.tick(60)
         
@@ -98,6 +99,7 @@ def main():
         for i in range(16, 19) :
             screen.blit(tileImages[i], (190 + ((i - 16) * 136), 515))
             screen.blit(numberImages[i], (285 + ((i - 16) * 136), 610))
+        my_button.draw(screen)
         pygame.display.flip()
 
     pygame.quit()
