@@ -1,7 +1,48 @@
 import pygame
+import sys
 from CatanState import CatanState
-import tkinter as tk
+WHITE = (255, 255, 255)
+DARK_BLUE = (20, 50, 90)
+LIGHT_BLUE = (40, 90, 160)
+class Button:
 
+    def __init__(self, x, y, width, height, text, action=None):
+        # Define the boundary rectangle
+        self.rect = pygame.Rect(x, y, width, height)
+        self.text = text
+        self.action = action
+
+        # Set up standard fonts
+        self.font = pygame.font.SysFont("Arial", 30)
+
+        # Base states
+        self.current_color = DARK_BLUE
+        self.is_clicked = False
+
+    def draw(self, surface):
+        # 1. Track mouse hover to dynamically shift colors
+        mouse_pos = pygame.mouse.get_pos()
+        if self.rect.collidepoint(mouse_pos):
+            self.current_color = LIGHT_BLUE
+        else:
+            self.current_color = DARK_BLUE
+
+        # 2. Draw button background surface
+        pygame.draw.rect(surface, self.current_color, self.rect, border_radius=8)
+
+        # 3. Render and center text
+        text_surface = self.font.render(self.text, True, WHITE)
+        text_rect = text_surface.get_rect(center=self.rect.center)
+        surface.blit(text_surface, text_rect)
+
+    def check_click(self, event):
+        # Look for mouse button down events inside boundaries
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            if self.rect.collidepoint(event.pos):
+                if self.action:
+                    self.action()
+def on_button_click():
+    print("Button Clicked!")
 # only handles display, after every turn display catanstate
 def main():
     pygame.init()
@@ -13,6 +54,7 @@ def main():
     screen = pygame.display.set_mode((900, 790.5))
     outline = pygame.image.load('CatanPictures\\CatanBoard.png').convert_alpha()
     outline = pygame.transform.scale(outline, (900, 790.5))
+    clock = pygame.time.Clock()
     board = state.board
     tileImages = []
     numberImages = []
@@ -26,10 +68,16 @@ def main():
         tileImages.append(temp)
     running = True
     #difference of 135
-    while running:
+    my_button = Button(x=300, y=250, width=200, height=60, text="Click Me", action=on_button_click)
+    while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False
+                pygame.quit()
+                sys.exit()
+            my_button.check_click(event)
+        my_button.draw(screen)
+        pygame.display.flip()
+        clock.tick(60)
         
         screen.fill((255, 255, 255))
         screen.blit(outline, (0, 0))

@@ -18,3 +18,7 @@ class Settlement():
 class City():
     def __init__(self, color, pos):
         return
+
+class Robber():
+    def __init__(self, color, pos):
+        return
