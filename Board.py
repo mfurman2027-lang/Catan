@@ -60,6 +60,3 @@ class Board:
             tileDict[i] = newTile
 
         return tileDict
-
-testBoard = Board()
-print(testBoard.edgeDict[0])
