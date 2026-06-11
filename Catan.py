@@ -9,10 +9,10 @@ LIGHT_GREY = (211, 211, 211)
 
 class Button:
 
-    def __init__(self, x, y, width, height, text, action=None):
+    def __init__(self, name, x, y, width, height, text):
+        self.name = name
         self.rect = pygame.Rect(x, y, width, height)
         self.text = text
-        self.action = action
 
         self.font = pygame.font.SysFont("Arial", 30)
 
@@ -35,10 +35,12 @@ class Button:
     def check_click(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             if self.rect.collidepoint(event.pos):
-                if self.action:
-                    self.action()
-def on_button_click():
-    print("Button Clicked!")
+                return self.on_button_click()
+        
+        return ""
+    
+    def on_button_click(self):
+        return self.name
 
 # only handles display, after every turn display catanstate
 def main():
@@ -58,15 +60,16 @@ def main():
 
     running = True
     #difference of 135
-    my_button = Button(x=240, y=115, width=10, height=10, text="", action=on_button_click)
+    my_button = Button("bOne", x=240, y=115, width=10, height=10, text="")
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            my_button.check_click(event)
-        
+            if my_button.check_click(event) != "":
+                print("clicked")
+
         pygame.display.flip()
         clock.tick(60)
         
